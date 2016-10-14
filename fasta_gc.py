@@ -73,5 +73,4 @@ def main():
         classification = classify_percent(percent)
         print percent, classification, name
 
-if __name__ == '__main__':
-    main()
+main()
