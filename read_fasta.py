@@ -5,9 +5,7 @@ def read_fasta(filename):
     f = open(filename)
     for line in f:
         line = line.strip()
-        if '>' in line:
-            pass
-        else:
+        if not '>' in line:
             # Append to the last sequence
             sequence = sequence + line
     f.close()
