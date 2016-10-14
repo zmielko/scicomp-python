@@ -46,19 +46,32 @@ def gc_content_percent(sequence):
     percent_gc = (gc * 100) / atcg
     return percent_gc
 
-# Make sure we have a file name
-if not len(sys.argv) == 2:
-    print "Usage: python", sys.argv[0], "<sequences.fa>"
-    exit(1)
+def classify_percent(percent):
+    if percent < 35:
+        classification = 'Low'
+    elif percent < 55:
+        classification = 'Normal'
+    else:
+        classification = 'High'
+    return classification
 
-filename = sys.argv[1]
+def main():
+    # Make sure we have a file name
+    if not len(sys.argv) == 2:
+        print "Usage: python", sys.argv[0], "<sequences.fa>"
+        exit(1)
 
-# Read the sequences into a dictionary
-sequences = read_fasta_dict(filename)
+    filename = sys.argv[1]
 
-# Loop over the keys (sequence names) in the dictionary
-for name in sequences:
-    sequence = sequences[name]
-    gc = gc_content_percent(sequence)
-    print gc, name
-    
+    # Read the sequences into a dictionary
+    sequences = read_fasta_dict(filename)
+
+    # Loop over the keys (sequence names) in the dictionary
+    for name in sequences:
+        sequence = sequences[name]
+        percent = gc_content_percent(sequence)
+        classification = classify_percent(percent)
+        print percent, classification, name
+
+if __name__ == '__main__':
+    main()
