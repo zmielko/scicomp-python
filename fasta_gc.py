@@ -57,8 +57,8 @@ def classify_percent(percent):
 
 def main():
     # Make sure we have a file name
-    if not len(sys.argv) == 2:
-        print "Usage: python", sys.argv[0], "<sequences.fa>"
+    if len(sys.argv) < 2:
+        print 'Usage: python', sys.argv[0], '<sequences.fa>'
         exit(1)
 
     filename = sys.argv[1]
