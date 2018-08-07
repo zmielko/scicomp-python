@@ -12,7 +12,7 @@ def read_fasta(filename):
     return sequence
 
 if len(sys.argv) < 2:
-    print "Usage:", sys.argv[0], "<sequence.fa>"
+    print('Usage:', sys.argv[0], '<sequence.fa>')
     exit(1)
 
-print read_fasta(sys.argv[1])
+print(read_fasta(sys.argv[1]))

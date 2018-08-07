@@ -58,7 +58,7 @@ def classify_percent(percent):
 def main():
     # Make sure we have a file name
     if len(sys.argv) < 2:
-        print 'Usage: python', sys.argv[0], '<sequences.fa>'
+        print('Usage: python', sys.argv[0], '<sequences.fa>')
         exit(1)
 
     filename = sys.argv[1]
@@ -71,6 +71,6 @@ def main():
         sequence = sequences[name]
         percent = gc_content_percent(sequence)
         classification = classify_percent(percent)
-        print percent, classification, name
+        print(percent, classification, name)
 
 main()
